@@ -1,5 +1,6 @@
 import G6 from "@antv/g6";
 import {useEffect, useRef} from "react";
+import MyStockChart from "@/pages/learnHighCharts.tsx";
 
 
 const data = {
@@ -255,8 +256,11 @@ function LearnG6(props) {
     }, []);
 
     return (
-        <div ref={graphRef} className={'w-full min-h-[800px] border border-1 border-gray-100 rounded m-auto'}
-             id="container"></div>
+        <>
+            <div ref={graphRef} className={'w-full min-h-[800px] border border-1 border-gray-100 rounded m-auto'}
+                 id="container"></div>
+            <MyStockChart/>
+        </>
     );
 }
 
