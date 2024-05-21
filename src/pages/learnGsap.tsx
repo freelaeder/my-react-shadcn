@@ -67,6 +67,27 @@ const LearnGsap = () => {
             <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
 
             </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
+            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+
+            </div>
 
         </>
     );
