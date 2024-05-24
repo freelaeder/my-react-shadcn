@@ -5,8 +5,8 @@ import AppRouter from "@/route";
 import '@/app/preflight.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    // <React.StrictMode>
+    <React.StrictMode>
         <AppRouter/>
-    // </React.StrictMode>
-,
+    </React.StrictMode>
+    ,
 )

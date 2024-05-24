@@ -11,16 +11,20 @@ const items: MenuProps['items'] = [
         icon: <MailOutlined/>,
     },
     {
-        label:'loginForm',
-        key:'loginForm',
+        label: 'loginForm',
+        key: 'loginForm',
     },
     {
-        label:'gsap',
-        key:'learnGsap'
+        label: 'gsap',
+        key: 'learnGsap'
     },
     {
-        label:'G6',
-        key:'learnG6'
+        label: 'G6',
+        key: 'learnG6'
+    },
+    {
+        label: 'HighCharts',
+        key: 'learnHighCharts'
     }
 
 
