@@ -8,6 +8,7 @@ import LearnGsap from "@/pages/learnGsap.tsx";
 import {ProfileForm} from "@/pages/LoginForm.tsx";
 import LearnG6 from "@/pages/LearnG6.tsx";
 import HighChartsPage from "@/pages/HighCharts";
+import GridBox from "@/pages/grid.tsx";
 
 export const router = createHashRouter([
     {
@@ -17,7 +18,7 @@ export const router = createHashRouter([
         children: [
             {
                 path: '',
-                element: <LearnG2/>
+                element: <LearnG2/>,
             },
             {
                 path: 'learnGsap',
@@ -34,6 +35,10 @@ export const router = createHashRouter([
             {
                 path:'learnHighCharts',
                 element: <HighChartsPage />
+            },
+            {
+                path:'gridBox',
+                element:<GridBox />
             }
 
         ]

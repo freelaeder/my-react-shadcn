@@ -1,45 +1,32 @@
-import React, {useState} from 'react';
-import {MailOutlined} from '@ant-design/icons';
+import React, {useEffect, useMemo, useState} from 'react';
 import type {MenuProps} from 'antd';
 import {Menu} from 'antd';
 import {useNavigate} from "react-router";
+import {router} from "@/route";
 
-const items: MenuProps['items'] = [
-    {
-        label: 'home',
-        key: '',
-        icon: <MailOutlined/>,
-    },
-    {
-        label: 'loginForm',
-        key: 'loginForm',
-    },
-    {
-        label: 'gsap',
-        key: 'learnGsap'
-    },
-    {
-        label: 'G6',
-        key: 'learnG6'
-    },
-    {
-        label: 'HighCharts',
-        key: 'learnHighCharts'
-    }
-
-
-];
 
 const MenuContainer: React.FC = () => {
-    const [current, setCurrent] = useState('mail');
+    const [current, setCurrent] = useState('');
     const navigation = useNavigate()
+
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
         navigation(e.key)
     };
+    // 获取路由
+    const routerItems = useMemo(() => router.routes[0].children?.map(it => ({
+        label: it.path === '' ? 'home' : it.path,
+        key: it.path
+    })), [router])
 
-    return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items}/>;
+    // 监听路由变化
+    useEffect(() => {
+        setCurrent(router.state.location.pathname.replace('/', ''))
+    }, [router.state.location.pathname]);
+
+    // 渲染菜单
+    return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={routerItems}/>;
 };
 
 export default MenuContainer;
