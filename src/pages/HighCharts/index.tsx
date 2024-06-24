@@ -33,7 +33,7 @@ const HighChartsPage = () => {
 
     return (
         <div className={'mt-10'}>
-            <h2 className={'border-b-2 border-gray-100 border-dashed'}>HighCharts</h2>
+            <h2 className={'border-b-2 font-yz border-gray-100 border-dashed'}>HighCharts</h2>
 
             <div className={'w-full flex items-center gap-2 my-5 justify-evenly'}>
                 <Button className={'w-[220px]'} disabled={chartOptions.series.length >= 10}

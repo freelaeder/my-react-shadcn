@@ -12,6 +12,8 @@
   "dependencies": {
     "@ant-design/charts": "^2.0.3",
     "@antv/g6": "^4.8.24",
+    "@antv/l7": "^2.21.10",
+    "@antv/l7-maps": "^2.21.10",
     "@gsap/react": "^2.1.0",
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-label": "^2.0.2",

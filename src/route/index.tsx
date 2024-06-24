@@ -9,6 +9,7 @@ import {ProfileForm} from "@/pages/LoginForm.tsx";
 import LearnG6 from "@/pages/LearnG6.tsx";
 import HighChartsPage from "@/pages/HighCharts";
 import GridBox from "@/pages/grid.tsx";
+import LearnL7 from "@/pages/learnL7.tsx";
 
 export const router = createHashRouter([
     {
@@ -39,6 +40,10 @@ export const router = createHashRouter([
             {
                 path:'gridBox',
                 element:<GridBox />
+            },
+            {
+                path:'learnL7',
+                element:<LearnL7/>
             }
 
         ]

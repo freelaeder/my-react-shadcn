@@ -26,7 +26,7 @@ const MenuContainer: React.FC = () => {
     }, [router.state.location.pathname]);
 
     // 渲染菜单
-    return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={routerItems}/>;
+    return <Menu className={'w-full fixed z-50 top-0 '} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={routerItems}/>;
 };
 
 export default MenuContainer;
