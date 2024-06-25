@@ -10,6 +10,8 @@ import LearnG6 from "@/pages/LearnG6.tsx";
 import HighChartsPage from "@/pages/HighCharts";
 import GridBox from "@/pages/grid.tsx";
 import LearnL7 from "@/pages/learnL7.tsx";
+import LearnDrawer from "@/pages/learnDrawer";
+import Login from "@/pages/login.tsx";
 
 export const router = createHashRouter([
     {
@@ -19,6 +21,10 @@ export const router = createHashRouter([
         children: [
             {
                 path: '',
+                element: <Login/>,
+            },
+            {
+                path: 'learG2',
                 element: <LearnG2/>,
             },
             {
@@ -44,6 +50,9 @@ export const router = createHashRouter([
             {
                 path:'learnL7',
                 element:<LearnL7/>
+            },{
+                path:'drawerContainer',
+                element:<LearnDrawer/>
             }
 
         ]

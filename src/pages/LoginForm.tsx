@@ -14,6 +14,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
+import {useToast} from "@/components/ui/use-toast.ts";
 
 
 const formSchema = z.object({
@@ -23,6 +24,7 @@ const formSchema = z.object({
 })
 
 export function ProfileForm() {
+    const {toast} = useToast()
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -31,11 +33,17 @@ export function ProfileForm() {
         },
     })
 
+
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof formSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values)
+        toast({
+            title: 'Submitted',
+            description: "Your profile has been updated.",
+            datatype:'success',
+            duration: 5000,
+        })
     }
 
     return (
