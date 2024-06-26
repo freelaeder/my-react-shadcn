@@ -1,12 +1,32 @@
 import {useGSAP} from "@gsap/react";
 import {gsap} from "gsap";
+import useWindowWidth from "@/hooks/useWindowWidth.ts";
 
 
+// 定义颜色数组和随机颜色选择函数
+const colors: string[] = [
+    'bg-red-500',
+    'bg-green-500',
+    'bg-blue-500',
+    'bg-yellow-500',
+    'bg-purple-500',
+    'bg-pink-500',
+    'bg-indigo-500',
+    'bg-teal-500',
+];
+
+const getRandomColor = (): string => {
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
+};
 const LearnGsap = () => {
+    const width = useWindowWidth()
+    const boxes = Array.from({ length: 30 });
 
+    console.log(width,'width')
     useGSAP(() => {
         gsap.to('#red-box', {
-            x: 1350,
+            x: width,
             repeat: -1,
             yoyo: true,
             rotation: 360,
@@ -42,51 +62,14 @@ const LearnGsap = () => {
                 </nav>
 
             </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
+            {boxes.map((_, index) => (
+                <div
+                    key={index}
+                    id="red-box"
+                    className={`w-[20px] aspect-square ${getRandomColor()}`}
+                />
+            ))}
 
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
-            <div id={'red-box'} className={'w-[20px] aspect-square bg-red-500'}>
-
-            </div>
 
         </>
     );
