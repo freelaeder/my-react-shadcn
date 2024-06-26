@@ -4,6 +4,6 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export default function AuthRoute({children}: Props) {
+export default function AuthRoute({}: Props) {
 
 }

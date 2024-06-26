@@ -6,7 +6,7 @@ const LearnG2 = () => {
             type: 'fetch',
             value: 'https://assets.antv.antgroup.com/g2/unemployment-by-industry.json',
         },
-        xField: (d) => new Date(d.date),
+        xField: (d:any) => new Date(d.date),
         yField: 'unemployed',
         colorField: 'industry',
         shapeField: 'smooth',

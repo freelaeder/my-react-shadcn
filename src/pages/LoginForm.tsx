@@ -40,7 +40,7 @@ export function ProfileForm() {
         // ✅ This will be type-safe and validated.
         toast({
             title: 'Submitted',
-            description: "Your profile has been updated.",
+            description: `Your profile has been updated.${values}`,
             datatype:'success',
             duration: 5000,
         })

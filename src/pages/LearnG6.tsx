@@ -1,8 +1,39 @@
-import G6 from "@antv/g6";
+import G6, { Graph } from "@antv/g6";
 import {useEffect, useRef} from "react";
 
+interface Node {
+    id: string;
+    label: string;
+    comboId?: string;
+    style?: {
+        fill: string;
+        stroke: string;
+    };
+}
 
-const data = {
+interface Edge {
+    source: string;
+    target: string;
+}
+
+interface Combo {
+    id: string;
+    label: string;
+    style: {
+        fill: string;
+        stroke: string;
+    };
+}
+
+interface Data {
+    nodes: Node[];
+    edges: Edge[];
+    combos: Combo[];
+}
+
+
+// ts-ignore
+const data : Data = {
     nodes: [
         {
             id: '0',
@@ -139,7 +170,8 @@ const data = {
     ],
 };
 data.nodes.forEach((node) => {
-    switch (node.ComboId) {
+    // ts-ignore
+    switch (node?.comboId) {
         case 'A':
             node.style = {
                 fill: '#C4E3B2',
@@ -167,9 +199,9 @@ data.nodes.forEach((node) => {
     }
 });
 
-function LearnG6(props) {
+function LearnG6() {
 
-    let graph = null
+    let graph: Graph | null = null
     let graphRef = useRef(null);
 
     const draw = () => {
@@ -180,9 +212,10 @@ function LearnG6(props) {
         const container = document.getElementById('container');
         container?.appendChild(descriptionDiv);
 
-        descriptionDiv.addEventListener('click', (e) => {
+        descriptionDiv.addEventListener('click', () => {
             sortByCombo = !sortByCombo;
             descriptionDiv.innerHTML = sortByCombo ? 'Disable sortByCombo' : 'Enable sortByCombo';
+            // @ts-ignore
             graph.updateLayout({
                 sortByCombo,
             });
@@ -193,7 +226,9 @@ function LearnG6(props) {
         }
 
 
+        // @ts-ignore
         const width = graphRef.current?.clientWidth;
+        // @ts-ignore
         const height = graphRef.current?.clientHeight;
 
         graph = new G6.Graph({
@@ -236,6 +271,7 @@ function LearnG6(props) {
                 },
             },
         });
+        // @ts-ignore
         graph.data(data);
         graph.render();
 

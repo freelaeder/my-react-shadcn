@@ -27,9 +27,16 @@ const darkTheme = {
         colorBgContainer: '#020817',
         // 全局边框色
         colorBorder: '#303133',
+        // 全局字体
+        fontFamily: 'MyCustomFont'
     }
 }
-const lightTheme = {algorithm: antdTheme.defaultAlgorithm,}
+const lightTheme = {
+    algorithm: antdTheme.defaultAlgorithm, token: {
+        // 全局字体
+        fontFamily: 'MyCustomFont'
+    }
+}
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 

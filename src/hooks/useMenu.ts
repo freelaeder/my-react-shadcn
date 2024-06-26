@@ -1,4 +1,4 @@
 
-export default function useMenu(menuList:[]){
+export default function useMenu(){
 
 }
