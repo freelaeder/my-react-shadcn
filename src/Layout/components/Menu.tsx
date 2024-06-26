@@ -39,6 +39,7 @@ const MenuContainer: React.FC = () => {
     <Menu
       onClick={onClick}
       selectedKeys={[current]}
+      style={{ flex: "auto", minWidth: 0 }}
       mode="horizontal"
       items={routerItems}
     />

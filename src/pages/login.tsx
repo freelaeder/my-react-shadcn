@@ -15,10 +15,11 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import {Button} from "@/components/ui/button.tsx";
+
 const Login = () => {
     return (
         <>
-            <Tabs defaultValue="account" className="w-[400px] m-auto">
+            <Tabs defaultValue="account" className="fixed  w-[400px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
                 <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="account">Account</TabsTrigger>
                     <TabsTrigger value="password">Password</TabsTrigger>
@@ -34,11 +35,11 @@ const Login = () => {
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="name">Name</Label>
-                                <Input id="name" defaultValue="Pedro Duarte" />
+                                <Input id="name" defaultValue="Pedro Duarte"/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="username">Username</Label>
-                                <Input id="username" defaultValue="@peduarte" />
+                                <Input id="username" defaultValue="@peduarte"/>
                             </div>
                         </CardContent>
                         <CardFooter>
@@ -49,7 +50,7 @@ const Login = () => {
                 <TabsContent value="password">
                     <Card>
                         <CardHeader>
-                            <CardTitle  className={'text-end'}>Password</CardTitle>
+                            <CardTitle className={'text-end'}>Password</CardTitle>
                             <CardDescription>
                                 Change your password here. After saving, you'll be logged out.
                             </CardDescription>
@@ -57,14 +58,14 @@ const Login = () => {
                         <CardContent className="space-y-2">
                             <div className="space-y-1">
                                 <Label htmlFor="current">Current password</Label>
-                                <Input id="current" type="password" />
+                                <Input id="current" type="password"/>
                             </div>
                             <div className="space-y-1">
                                 <Label htmlFor="new">New password</Label>
-                                <Input id="new" type="password" />
+                                <Input id="new" type="password"/>
                             </div>
                         </CardContent>
-                        <CardFooter  className={'justify-end'}>
+                        <CardFooter className={'justify-end'}>
                             <Button>Save password</Button>
                         </CardFooter>
                     </Card>
