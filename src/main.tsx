@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "@/app/globals.css";
+import "@/styles/globals.css";
 import AppRouter from "@/route";
-import "@/app/preflight.css";
+import "@/styles/preflight.css";
 import "@/fonts/index.css";
 import {ThemeProvider} from "./contexts/themeContext";
 import {Toaster} from "@/components/ui/toaster"

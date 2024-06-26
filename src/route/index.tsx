@@ -14,6 +14,7 @@ import LearnDrawer from "@/pages/learnDrawer";
 import Login from "@/pages/login.tsx";
 
 export const router = createHashRouter([
+
     {
         path: "",
         element: <NavigationMenuDemo/>,
@@ -56,6 +57,10 @@ export const router = createHashRouter([
             }
 
         ]
+    },
+    {
+        path:"login",
+        element:<Login/>
     },
 ]);
 
