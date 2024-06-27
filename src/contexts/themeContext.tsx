@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from "react"
+import React, {createContext, useContext, useEffect, useState} from "react"
 import {ConfigProvider, theme as antdTheme} from "antd";
 
 type Theme = "dark" | "light" | "system"

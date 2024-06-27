@@ -2,7 +2,7 @@ import {
     RouterProvider,
     createHashRouter,
 } from "react-router-dom";
-import {NavigationMenuDemo} from "@/Layout";
+import {Layout} from "@/Layout";
 import LearnG2 from "@/pages/learnG2.tsx";
 import LearnGsap from "@/pages/learnGsap.tsx";
 import {ProfileForm} from "@/pages/LoginForm.tsx";
@@ -12,20 +12,16 @@ import GridBox from "@/pages/grid.tsx";
 import LearnL7 from "@/pages/learnL7.tsx";
 import LearnDrawer from "@/pages/learnDrawer";
 import Login from "@/pages/login.tsx";
+import AuthRoute from "@/route/authRoute.tsx";
 
 export const router = createHashRouter([
-
     {
         path: "",
-        element: <NavigationMenuDemo/>,
+        element: <AuthRoute children={<Layout/>}/>,
         errorElement: <div>404</div>,
         children: [
             {
                 path: '',
-                element: <Login/>,
-            },
-            {
-                path: 'learG2',
                 element: <LearnG2/>,
             },
             {
@@ -37,32 +33,35 @@ export const router = createHashRouter([
                 element: <ProfileForm/>
             },
             {
-                path:'learnG6',
-                element: <LearnG6 />
+                path: 'learnG6',
+                element: <LearnG6/>
             },
             {
-                path:'learnHighCharts',
-                element: <HighChartsPage />
+                path: 'learnHighCharts',
+                element: <HighChartsPage/>
             },
             {
-                path:'gridBox',
-                element:<GridBox />
+                path: 'gridBox',
+                element: <GridBox/>
             },
             {
-                path:'learnL7',
-                element:<LearnL7/>
-            },{
-                path:'drawerContainer',
-                element:<LearnDrawer/>
+                path: 'learnL7',
+                element: <LearnL7/>
+            }, {
+                path: 'drawerContainer',
+                element: <LearnDrawer/>
             }
 
         ]
     },
     {
-        path:"login",
-        element:<Login/>
+        path: "login",
+        element: <Login/>
     },
-]);
+], {
+    // 配置基础路由前缀
+    basename: ''
+});
 
 export default function AppRouter() {
     return <RouterProvider router={router}/>

@@ -9,7 +9,6 @@ const MenuContainer: React.FC = () => {
   const navigation = useNavigate();
 
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
     navigation(e.key);
   };

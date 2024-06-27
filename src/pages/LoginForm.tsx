@@ -15,7 +15,9 @@ import {
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {useToast} from "@/components/ui/use-toast.ts";
-
+import {useSelector} from "react-redux";
+import {increment, incrementByAmount} from "@/store/slices/counterSlice.ts"
+import {useTypedDispatch} from "@/store";
 
 const formSchema = z.object({
     username: z.string().min(2, {
@@ -41,10 +43,13 @@ export function ProfileForm() {
         toast({
             title: 'Submitted',
             description: `Your profile has been updated.${values.username}`,
-            datatype:'success',
+            datatype: 'success',
             duration: 5000,
         })
     }
+
+    const count = useSelector(state => state.counter.value)
+    const dispatch = useTypedDispatch()
 
     return (
         <>
@@ -72,6 +77,9 @@ export function ProfileForm() {
             <div>
                 {JSON.stringify(form.watch(), null, 2)}
             </div>
+            <h1>{count}</h1>
+            <Button onClick={() => dispatch(increment())}>Submit</Button>
+            <Button onClick={() => dispatch(incrementByAmount(Number(form.watch().username)))}>Submit</Button>
 
         </>
 

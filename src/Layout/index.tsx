@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "./components/Navbar";
-export function NavigationMenuDemo() {
+export function Layout() {
   return (
     <>
       <Navbar />

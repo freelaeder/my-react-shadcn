@@ -15,11 +15,41 @@ import {
     TabsTrigger,
 } from "@/components/ui/tabs"
 import {Button} from "@/components/ui/button.tsx";
+import {currentProfile, login} from "@/api/auth";
+import {message} from "antd";
+import {saveAuth, saveToken} from "@/store/slices/authSlice.ts";
+import {useTypedDispatch} from "@/store";
+import {AuthTypeEnum} from "@/api/auth/types.ts";
+import {useNavigate} from "react-router";
 
 const Login = () => {
+    const dispatch = useTypedDispatch()
+    const navigate = useNavigate()
+    // 用于实现用户登录的方法
+    const onFinish = async () => {
+        try {
+            const {xAuthToken} = await login({
+                authType: AuthTypeEnum.USERNAME_PASSWORD,
+                credentials: "123456",
+                principal: "defaultAdmin"
+            })
+            dispatch(saveToken(xAuthToken))
+            const res = await currentProfile()
+            dispatch(saveAuth(res))
+            message.success('登录成功')
+            navigate('/')
+        } catch (e) {
+            console.log(e)
+            message.error("登录失败")
+        } finally {
+
+        }
+
+    }
     return (
         <>
-            <Tabs defaultValue="account" className="fixed  w-[400px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+            <Tabs defaultValue="account"
+                  className="fixed  w-[400px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
                 <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="account">Account</TabsTrigger>
                     <TabsTrigger value="password">Password</TabsTrigger>
@@ -43,7 +73,7 @@ const Login = () => {
                             </div>
                         </CardContent>
                         <CardFooter>
-                            <Button>Save changes</Button>
+                            <Button onClick={() => onFinish()}>Save changes</Button>
                         </CardFooter>
                     </Card>
                 </TabsContent>

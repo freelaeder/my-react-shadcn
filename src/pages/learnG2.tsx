@@ -1,4 +1,6 @@
 import { Area } from '@ant-design/plots';
+import {useEffect} from "react";
+import {queryCarbonIntensityTrend} from "@/api/auth";
 const LearnG2 = () => {
     // @ts-ignore
     const config = {
@@ -12,6 +14,10 @@ const LearnG2 = () => {
         shapeField: 'smooth',
         stack: true, // Try to remove this line.
     };
+
+    useEffect(() => {
+        queryCarbonIntensityTrend()
+    }, []);
     return <Area {...config} />;
 };
 
