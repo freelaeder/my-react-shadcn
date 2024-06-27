@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {useToast} from "@/components/ui/use-toast.ts";
-import {useSelector} from "react-redux";
 import {increment, incrementByAmount} from "@/store/slices/counterSlice.ts"
 import {useTypedDispatch} from "@/store";
 
@@ -48,7 +47,7 @@ export function ProfileForm() {
         })
     }
 
-    const count = useSelector(state => state.counter.value)
+    const count = 0
     const dispatch = useTypedDispatch()
 
     return (
