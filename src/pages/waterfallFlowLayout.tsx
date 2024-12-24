@@ -11,9 +11,11 @@ const WaterfallFlowLayout = () => {
             const loadedImages = await Promise.all(
                 Object.values(imageModules).map(async (module) => {
                     const moduleResult = await module();
+                    // @ts-ignore
                     return moduleResult.default; // 图片路径在模块的 default 导出中
                 })
             );
+            // @ts-ignore
             setImages(loadedImages);
         }
         loadImages()
