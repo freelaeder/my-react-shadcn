@@ -9,6 +9,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import WaterfallFlowLayout from "@/pages/waterfallFlowLayout.tsx";
 
 const LearnDrawer = () => {
   return (
@@ -29,6 +30,7 @@ const LearnDrawer = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
+      <WaterfallFlowLayout/>
     
     </>
   );
